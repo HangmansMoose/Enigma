@@ -1,0 +1,12 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "compilerPath":"C:\\Program Files\\Microsoft Visual Studio\\18\\Insiders\\VC\\Tools\\MSVC\\14.50.35702\bin\\Hostx64\\x64\\cl.exe" ,
+      "includePath":["${workspaceFolder}/src", "${workspaceFolder}/third_party/spdlog/include"],
+      "defines": ["ENIGMA_PLATFORM_WINDOWS", "ENIGMA_BUILD_DLL"],
+      "intelliSenseMode": "windows-msvc-x64"
+    }
+  ],
+  "version": 4
+}
