@@ -8,15 +8,15 @@ workspace "Enigma"
 		"Dist"
 	}
 
-outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+outputdir = "%{cfg.buildcfg}/%{cfg.system}"
 
 project "Enigma"
 	location "Enigma"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("Build/" .. outputdir)
+	objdir ("Build/Intermediate" .. outputdir)
 
 	files
 	{
@@ -26,35 +26,36 @@ project "Enigma"
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/third_party/spdlog/include"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
+		cppdialect "C++20"
 		staticruntime "On"
-		systemversion "10.0.17134.0"
+		systemversion "latest"
+		buildoptions{ "/utf-8" }
 
 		defines
 		{
-			"Enigma_PLATFORM_WINDOWS",
-			"Enigma_BUILD_DLL"
+			"ENIGMA_PLATFORM_WINDOWS",
+			"ENIGMA_BUILD_DLL"
 		}
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../Build/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
-		defines "Enigma_DEBUG"
+		defines "ENIGMA_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "Enigma_RELEASE"
+		defines "ENIGMA_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "Enigma_DIST"
+		defines "ENIGMA_DIST"
 		optimize "On"
 
 project "Sandbox"
@@ -62,8 +63,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("Build/" .. outputdir .. "/%{prj.name}")
+	objdir ("Build/Intermediate" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -73,7 +74,7 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Enigma/vendor/spdlog/include",
+		"Enigma/third_party/spdlog/include",
 		"Enigma/src"
 	}
 
@@ -85,7 +86,8 @@ project "Sandbox"
 	filter "system:windows"
 		cppdialect "C++20"
 		staticruntime "On"
-		systemversion "10.0.22621.0"
+		systemversion "latest"
+		buildoptions{ "/utf-8" }
 
 		defines
 		{
@@ -93,13 +95,13 @@ project "Sandbox"
 		}
 
 	filter "configurations:Debug"
-		defines "Enigma_DEBUG"
+		defines "ENIGMA_DEBUG"
 		symbols "On"
 
 	filter "configurations:Release"
-		defines "Enigma_RELEASE"
+		defines "ENIGMA_RELEASE"
 		optimize "On"
 
 	filter "configurations:Dist"
-		defines "Enigma_DIST"
+		defines "ENIGMA_DIST"
 		optimize "On"

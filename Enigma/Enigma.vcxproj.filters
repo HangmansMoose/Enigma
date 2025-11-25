@@ -1,42 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Enigma">
+      <UniqueIdentifier>{F6D7D4B0-E279-FF86-CB34-13DBB77586D7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Enigma\Events">
+      <UniqueIdentifier>{1A33D516-86F3-504D-4F2E-9ACABBAD9529}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Engima.h" />
+    <ClInclude Include="src\Enigma\Application.h">
+      <Filter>Enigma</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\Core.h">
+      <Filter>Enigma</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\EntryPoint.h">
+      <Filter>Enigma</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\Events\ApplicationEvent.h">
+      <Filter>Enigma\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\Events\Event.h">
+      <Filter>Enigma\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\Events\KeyEvent.h">
+      <Filter>Enigma\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\Events\MouseEvent.h">
+      <Filter>Enigma\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enigma\Log.h">
+      <Filter>Enigma</Filter>
+    </ClInclude>
+    <ClInclude Include="src\enigma_pch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Enigma\Application.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Enigma</Filter>
     </ClCompile>
     <ClCompile Include="src\Enigma\Log.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Enigma</Filter>
     </ClCompile>
+    <ClCompile Include="src\enigma_pch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Enigma\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Enigma\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engima.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Enigma\EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Enigma\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <None Include="Enigma.code-workspace" />
+    <None Include="NOTES.md" />
   </ItemGroup>
 </Project>

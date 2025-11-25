@@ -6,7 +6,7 @@
 	        "type": "shell",
 	        "command": "C:/Program Files/Microsoft Visual Studio/18/Insiders/MSBuild/current/Bin/MSBuild.exe",
 	        "args": [
-	        	"${workspaceFolder}/<solution_name>.sln",
+	        	"G:/dev/Engima/Enigma.sln",
 				"/t:Sandbox:Build",
 	        	"/p:Configuration=Debug",
 	        	"/p:platform=x64",

@@ -4,7 +4,7 @@
       "name": "Win32",
       "compilerPath":"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.50.35207\\bin\\Hostx64\\x64\\cl.exe" ,
       "includePath":["G:/dev/Enigma/Enigma/src", "G:/dev/Enigma/Enigma/third_party/spdlog/include"],
-      "defines": ["ENIGMA_PLATFORM_WINDOWS"],
+      "defines": ["ENIGMA_BUILD_DLL", "ENIGMA_PLATFORM_WINDOWS"],
       "intelliSenseMode": "windows-msvc-x64"
     }
   ],
