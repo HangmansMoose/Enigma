@@ -2,11 +2,9 @@
 
 #include "Event.h"
 
-#include <sstream>
+namespace Enigma {
 
-namespace ENGIMA {
-
-	class ENGIMA_API KeyEvent : public Event
+	class ENIGMA_API KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -19,7 +17,7 @@ namespace ENGIMA {
 		int m_KeyCode;
 	};
 
-	class ENGIMA_API KeyPressedEvent : public KeyEvent
+	class ENIGMA_API KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)
@@ -39,7 +37,7 @@ namespace ENGIMA {
 		int m_RepeatCount;
 	};
 
-	class ENGIMA_API KeyReleasedEvent : public KeyEvent
+	class ENIGMA_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(int keycode)

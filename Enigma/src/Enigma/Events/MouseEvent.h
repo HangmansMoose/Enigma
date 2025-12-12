@@ -2,11 +2,9 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Enigma {
 
-	class ENGIMA_API MouseMovedEvent : public Event
+	class ENIGMA_API MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -28,7 +26,7 @@ namespace Enigma {
 		float m_MouseX, m_MouseY;
 	};
 
-	class ENGIMA_API MouseScrolledEvent : public Event
+	class ENIGMA_API MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -50,7 +48,7 @@ namespace Enigma {
 		float m_XOffset, m_YOffset;
 	};
 
-	class ENGIMA_API MouseButtonEvent : public Event
+	class ENIGMA_API MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -63,7 +61,7 @@ namespace Enigma {
 		int m_Button;
 	};
 
-	class ENGIMA_API MouseButtonPressedEvent : public MouseButtonEvent
+	class ENIGMA_API MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -79,7 +77,7 @@ namespace Enigma {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class ENGIMA_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class ENIGMA_API MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)

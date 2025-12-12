@@ -12,8 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Hazel/Log.h"
+#include "Enigma/Log.h"
 
-#ifdef HZ_PLATFORM_WINDOWS
+#ifdef ENIGMA_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

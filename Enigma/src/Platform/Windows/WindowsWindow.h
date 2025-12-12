@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Hazel/Window.h"
+#include "Enigma/Window.h"
 
 #include <GLFW/glfw3.h>
 
-namespace Hazel {
+namespace Enigma {
 
 	class WindowsWindow : public Window
 	{

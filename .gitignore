@@ -1,7 +1,10 @@
 # Directories
 .vs/
-bin/
-bin-int/
+.cache/
+Build/
 
 # Files
 *.user
+*.exe
+*.pdb
+*.obj

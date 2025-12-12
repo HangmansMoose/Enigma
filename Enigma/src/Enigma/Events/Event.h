@@ -1,13 +1,11 @@
 #pragma once
 
-#include "ENGIMA/Core.h"
+#include "enigma_pch.h"
+#include "Enigma/Core.h"
 
-#include <string>
-#include <functional>
+namespace Enigma {
 
-namespace ENGIMA {
-
-	// Events in ENGIMA are currently blocking, meaning when an event occurs it
+	// Events in Enigma are currently blocking, meaning when an event occurs it
 	// immediately gets dispatched and must be dealt with right then an there.
 	// For the future, a better strategy might be to buffer events in an event
 	// bus and process them during the "event" part of the update stage.
@@ -21,8 +19,6 @@ namespace ENGIMA {
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
-	// These are flags so that we can apply multiple categories to a single EventType
-	// Eg. A Mouse Event is both a mouse event and an input event
 	enum EventCategory
 	{
 		None = 0,
@@ -85,4 +81,3 @@ namespace ENGIMA {
 		return os << e.ToString();
 	}
 }
-

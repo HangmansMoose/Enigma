@@ -2,11 +2,9 @@
 
 #include "Event.h"
 
-#include <sstream>
+namespace Enigma {
 
-namespace ENGIMA {
-
-	class ENGIMA_API WindowResizeEvent : public Event
+	class ENIGMA_API WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
@@ -28,7 +26,7 @@ namespace ENGIMA {
 		unsigned int m_Width, m_Height;
 	};
 
-	class ENGIMA_API WindowCloseEvent : public Event
+	class ENIGMA_API WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() {}
@@ -37,7 +35,7 @@ namespace ENGIMA {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGIMA_API AppTickEvent : public Event
+	class ENIGMA_API AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() {}
@@ -46,7 +44,7 @@ namespace ENGIMA {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGIMA_API AppUpdateEvent : public Event
+	class ENIGMA_API AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() {}
@@ -55,7 +53,7 @@ namespace ENGIMA {
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class ENGIMA_API AppRenderEvent : public Event
+	class ENIGMA_API AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() {}
