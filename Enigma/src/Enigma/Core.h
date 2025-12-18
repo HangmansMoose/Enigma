@@ -1,13 +1,7 @@
 #pragma once
 
-#ifdef ENIGMA_PLATFORM_WINDOWS
-	#ifdef ENIGMA_BUILD_DLL
-		#define ENIGMA_API __declspec(dllexport)
-	#else
-		#define ENIGMA_API __declspec(dllimport)
-	#endif
-#else
-	#error Enigma only supports Windows!
+#ifdef ENIGMA_DEBUG
+	#define ENIGMA_ENABLE_ASSERTS
 #endif
 
 #ifdef ENIGMA_ENABLE_ASSERTS
@@ -19,3 +13,5 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define ENIGMA_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

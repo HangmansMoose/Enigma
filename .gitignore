@@ -1,7 +1,10 @@
 # Directories
 .vs/
 .cache/
+*/third_party/*
 Build/
+bin/
+bin-int/
 
 # Files
 *.user

@@ -1,14 +1,15 @@
 #pragma once
 
 #include "Core.h"
-#include "Events/Event.h"
-#include "Enigma/Events/ApplicationEvent.h"
 
 #include "Window.h"
+#include "Enigma/LayerStack.h"
+#include "Enigma/Events/Event.h"
+#include "Enigma/Events/ApplicationEvent.h"
 
 namespace Enigma {
 
-	class ENIGMA_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -17,11 +18,21 @@ namespace Enigma {
 		void Run();
 
 		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+		inline Window& GetWindow() { return *m_Window; }
+
+		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
+	private:
+		static Application* s_Instance;
 	};
 
 	// To be defined in CLIENT
