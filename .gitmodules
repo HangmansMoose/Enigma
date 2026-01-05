@@ -1,11 +1,4 @@
-[submodule "Enigma/third_party/spdlog"]
-	path = Enigma/third_party/spdlog
-	url = https://github.com/gabime/spdlog
-[submodule "Enigma/third_party/ImGui"]
-	path = Enigma/third_party/ImGui
+[submodule "Enigma/Includes/ImGui"]
+	path = Enigma/Includes/ImGui
 	url = https://github.com/ocornut/imgui
 	branch = docking
-[submodule "Enigma/third_party/GLFW"]
-	path = Enigma/third_party/GLFW
-	url = https://github.com/glfw/glfw
-	branch = 3.3-stable

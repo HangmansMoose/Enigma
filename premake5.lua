@@ -13,17 +13,6 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "Enigma/third_party/GLFW/include"
-IncludeDir["Glad"] = "Enigma/third_party/Glad/include"
-IncludeDir["ImGui"] = "Enigma/third_party/imgui"
-IncludeDir["glm"] = "Enigma/third_party/glm"
-
-group "Dependencies"
-    include "Enigma/third_party/GLFW"
-    include "Enigma/third_party/Glad"
-    include "Enigma/third_party/imgui"
-
-group ""
 
 project "Enigma"
     location "Enigma"
@@ -32,8 +21,8 @@ project "Enigma"
     cppdialect "C++23"
     staticruntime "on"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("Build/" .. outputdir .. "/%{prj.name}")
+    objdir ("Build/intermdediate/" .. outputdir .. "/%{prj.name}")
 
     pchheader "enigma_pch.h"
     pchsource "Enigma/src/enigma_pch.cpp"
@@ -42,8 +31,9 @@ project "Enigma"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
-        "%{prj.name}/third_party/glm/glm/**.hpp",
-        "%{prj.name}/third_party/glm/glm/**.inl",
+        "%{prj.name}/Includes/glm/glm/**.hpp",
+        "%{prj.name}/Includes/glad/glad.c",
+        "%{prj.name}/Includes/glm/glm/**.inl"
     }
 
     defines
@@ -54,19 +44,22 @@ project "Enigma"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/third_party/spdlog/include",
-        "%{IncludeDir.GLFW}",
-        "%{IncludeDir.Glad}",
-        "%{IncludeDir.ImGui}",
-        "%{IncludeDir.glm}"
+        "%{prj.name}/includes/spdlog",
+        "%{prj.name}/includes/ImGui",
+        "%{prj.name}/includes"
+    }
+
+    libdirs
+    {
+        "%{prj.name}/libs"
     }
 
     links
     {
-        "GLFW",
-        "Glad",
-        "ImGui",
-        "opengl32.lib"
+        "glfw3_mt.lib",
+        "glfw3.lib",
+        "opengl32.lib",
+        "gdi32.lib"
     }
 
     filter "system:windows"
@@ -104,8 +97,8 @@ project "Sandbox"
     cppdialect "C++23"
     staticruntime "on"
 
-    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("Build/" .. outputdir .. "/%{prj.name}")
+    objdir ("Build/intermediate/" .. outputdir .. "/%{prj.name}")
 
     files
     {
@@ -115,10 +108,8 @@ project "Sandbox"
 
     includedirs
     {
-        "Enigma/third_party/spdlog/include",
+        "Enigma/Includes",
         "Enigma/src",
-        "Enigma/third_party",
-        "%{IncludeDir.glm}"
     }
 
     links
