@@ -18,9 +18,12 @@ IncludeDir["Glad"] = "Enigma/third_party/Glad/include"
 IncludeDir["ImGui"] = "Enigma/third_party/imgui"
 IncludeDir["glm"] = "Enigma/third_party/glm"
 
-include "Enigma/third_party/GLFW"
-include "Enigma/third_party/Glad"
-include "Enigma/third_party/imgui"
+group "Dependencies"
+    include "Enigma/third_party/GLFW"
+    include "Enigma/third_party/Glad"
+    include "Enigma/third_party/imgui"
+
+group ""
 
 project "Enigma"
     location "Enigma"
@@ -41,6 +44,11 @@ project "Enigma"
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/third_party/glm/glm/**.hpp",
         "%{prj.name}/third_party/glm/glm/**.inl",
+    }
+
+    defines
+    {
+        "_CRT_SECURE_NO_WARNINGS"
     }
 
     includedirs
@@ -109,6 +117,7 @@ project "Sandbox"
     {
         "Enigma/third_party/spdlog/include",
         "Enigma/src",
+        "Enigma/third_party",
         "%{IncludeDir.glm}"
     }
 
